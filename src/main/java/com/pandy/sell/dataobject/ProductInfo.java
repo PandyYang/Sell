@@ -10,6 +10,7 @@ import java.math.BigDecimal;
  * @Author: Pandy
  * @Date: 2019/5/4 8:31
  * @Version 1.0
+ * 商品详情
  */
 @Entity
 @Data

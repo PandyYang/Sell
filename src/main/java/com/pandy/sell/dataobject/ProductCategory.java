@@ -9,6 +9,7 @@ import java.util.Date;
  * @Author: Pandy
  * @Date: 2019/5/3 17:15
  * @Version 1.0
+ * 商品种类
  */
 @Entity
 @Data
