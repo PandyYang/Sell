@@ -40,6 +40,12 @@ public class OrderDTO {
     //更新时间
     private Date updateTime;
 
+    //订单状态
+    private Integer orderStatus;
+
+    //支付状态
+    private Integer payStatus;
+
     //一个订单对应多个商品
     List<OrderDetail> orderDetailList;
 

@@ -2,10 +2,13 @@ package com.pandy.sell.service.impl;
 
 import com.pandy.sell.dataobject.OrderDetail;
 import com.pandy.sell.dto.OrderDTO;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
@@ -26,6 +29,9 @@ public class OrderServiceImplTest {
     private OrderServiceImpl orderService;
 
     private final String BUYEROPENID = "110";
+
+    private final String ORDERID = "1556980918491318231";
+
     @Test
     public void create() {
 
@@ -48,10 +54,16 @@ public class OrderServiceImplTest {
 
     @Test
     public void findOne() {
+        OrderDTO result = orderService.findOne(ORDERID);
+        System.out.println(result);
     }
 
     @Test
     public void findList() {
+        PageRequest request = PageRequest.of(0,2);
+        Page<OrderDTO> orderDTOPage = orderService.findList(BUYEROPENID, request);
+        Assert.assertNotEquals(0,orderDTOPage.getTotalElements());
+
     }
 
     @Test
