@@ -2,6 +2,7 @@ package com.pandy.sell.service.impl;
 
 import com.pandy.sell.dataobject.OrderDetail;
 import com.pandy.sell.dto.OrderDTO;
+import com.pandy.sell.enums.OrderStatusEnum;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -68,6 +69,9 @@ public class OrderServiceImplTest {
 
     @Test
     public void cancel() {
+        OrderDTO orderDTO = orderService.findOne(ORDERID);
+        OrderDTO cancel = orderService.cancel(orderDTO);
+        Assert.assertEquals(OrderStatusEnum.CANCEL.getCode(),cancel.getOrderStatus());
     }
 
     @Test
